@@ -5,7 +5,7 @@ for (i = 0; i <= 100; i++)
 {
 	eyes[i] = i;
 }
-var colours = ["red", "orange", "yellow", "green", "blue", "purple", "cyan", "magenta", "black", "white", "brown", "pink"]
+var colours = ["red", "orange", "yellow", "green", "blue", "purple", "cyan", "magenta", "black", "white", "brown", "pink"] 
 var legs = [];
 for (i = 0; i <= 20; i++)
 {
