@@ -1,0 +1,74 @@
+
+header
+{
+	width: 50%;
+	height: 100px;
+	margin: 20px auto;
+	border: 2px green solid;
+}
+
+	header h1
+	{
+		font-size: 48px;
+		font-family: sans-serif;
+		text-align: center;
+		border: 2px green solid;
+	}
+	
+	header button
+	{
+		width: 100px;
+		height: 50px;
+	}
+
+canvas
+{
+/*	width: 500px;
+	height: 350px;*/
+	display: block;
+	margin: 10px auto;
+	border: 2px green solid;
+}
+
+#colours{
+	width: 40%;
+}
+
+#eraser-container{
+	width: 10%;
+}
+
+#brush-sizes{
+	width: 20%;
+}
+#colours, #eraser-container, #brush-sizes{
+	margin: 5px auto;
+}
+
+button
+{
+	background-color: #CD2729;
+	border: none;
+	cursor:pointer;
+	padding: 5px;
+}
+
+#drawing-area
+{
+	border: 2px green solid;
+}
+
+#colours
+{
+	border: 2px green solid;
+}
+
+#eraser-container
+{
+	border: 2px green solid;
+}
+
+#brush-sizes
+{
+	border: 2px green solid;
+}

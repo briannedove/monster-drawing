@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="getmonster.js"></script>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<header>
+<h1>Monster Drawing Prompt</h1>
+
+<p id="monster"></p>
+<button id="requestmonster">Get Monster</button>
+
+</header>
+<div id="drawing-area">
+    <canvas id="canvas" width="500" height="350"></canvas>
+    
+    <div id="colours">
+        <button id="red">red</button>
+        <button id="orange">orange</button>
+        <button id="yellow">yellow</button>
+        <button id="green">green</button>
+        <button id="blue">blue</button>
+        <button id="purple">purple</button>
+        <button id="cyan">cyan</button>
+        <button id="magenta">magenta</button>
+        <button id="black">black</button>
+        <button id="brown">brown</button>
+        <button id="pink">pink</button>
+    </div>
+    
+    <div id="eraser-container">
+    	<button id="eraser">eraser</button>
+    </div>
+    <div id="brush-sizes">
+        <button id="small">small</button>
+        <button id="medium">medium</button>
+        <button id="large">large</button>
+    </div>
+</div>
+
+<script>
+
+var requestMonster = document.getElementById('requestmonster');
+requestMonster.onclick = function(){
+	var monster = document.getElementById('monster');
+	monster.innerHTML = getMonster();
+}
+
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var red = document.getElementById('red');
+var orange = document.getElementById('orange');
+var yellow = document.getElementById('yellow');
+var green = document.getElementById('green');
+var blue = document.getElementById('blue');
+var purple = document.getElementById('purple');
+var cyan = document.getElementById('cyan');
+var magenta = document.getElementById('magenta');
+var black = document.getElementById('black');
+var brown = document.getElementById('brown');
+var pink = document.getElementById('pink');
+var eraser = document.getElementById('eraser');
+var sm = document.getElementById('small');
+var medium = document.getElementById('medium');
+var large = document.getElementById('large');
+
+
+var mouse = {x: 0, y: 0};
+//Mouse capture time!!
+canvas.addEventListener('mousemove', function(e){
+	mouse.x = e.pageX - this.offsetLeft;
+	mouse.y = e.pageY - this.offsetTop;
+}, false);
+
+/*default drawing bits*/
+context.lineWidth = 2;
+context.lineJoin = 'round';
+context.lineCap = 'round';
+context.strokeStyle = 'black';
+
+//colour changing
+red.onclick = function(){
+	context.strokeStyle = 'red';
+};
+orange.onclick = function(){
+	context.strokeStyle = 'orange';
+};
+yellow.onclick = function(){
+	context.strokeStyle = 'yellow';
+};
+green.onclick = function(){
+	context.strokeStyle = 'green';
+};
+blue.onclick = function(){
+	context.strokeStyle = 'blue';
+};
+purple.onclick = function(){
+	context.strokeStyle = 'purple';
+};
+cyan.onclick = function(){
+	context.strokeStyle = 'cyan';
+};
+magenta.onclick = function(){
+	context.strokeStyle = 'magenta';
+};
+black.onclick = function(){
+	context.strokeStyle = 'black';
+};
+brown.onclick = function(){
+	context.strokeStyle = 'brown';
+};
+pink.onclick = function(){
+	context.strokeStyle = 'pink';
+};
+eraser.onclick = function(){
+	context.strokeStyle = 'white';
+};
+
+sm.onclick = function(){
+	context.lineWidth = 2;
+};
+medium.onclick = function(){
+	context.lineWidth = 5;
+};
+large.onclick = function(){
+	context.lineWidth = 8;
+};
+
+
+canvas.addEventListener('mousedown', function(e){
+	context.beginPath();
+	context.moveTo(mouse.x, mouse.y);
+	
+	canvas.addEventListener('mousemove', onPaint, false);
+}, false);
+
+canvas.addEventListener('mouseup', function(){
+	canvas.removeEventListener('mousemove', onPaint, false);
+}, false);
+var onPaint = function(){
+	context.lineTo(mouse.x, mouse.y);
+	context.stroke();
+};
+//Add colours and ability to clear canvas as well as eraser
+
+</script>
+</body>
+</html>
