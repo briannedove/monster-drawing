@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Document</title>
+<title>Draw-A-Scary</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="getmonster.js"></script>
 <link rel="stylesheet" href="css/reset.css">
@@ -11,7 +11,7 @@
 
 <body>
 <header>
-<h1>Monster Drawing Prompt</h1>
+<h1>Draw-A-Scary</h1>
 
 <p id="monster"></p>
 <button id="requestmonster">Get Monster</button>
@@ -36,6 +36,7 @@
     
     <div id="eraser-container">
     	<button id="eraser">eraser</button>
+    	<button id="clear">clear</button>
     </div>
     <div id="brush-sizes">
         <button id="small">small</button>
@@ -69,6 +70,7 @@ var eraser = document.getElementById('eraser');
 var sm = document.getElementById('small');
 var medium = document.getElementById('medium');
 var large = document.getElementById('large');
+var clear = document.getElementById('clear');
 
 
 var mouse = {x: 0, y: 0};
@@ -132,7 +134,8 @@ large.onclick = function(){
 	context.lineWidth = 8;
 };
 
-
+/*Refine this bit so that user can paint with a single click
+rather than only with click & drag */
 canvas.addEventListener('mousedown', function(e){
 	context.beginPath();
 	context.moveTo(mouse.x, mouse.y);
@@ -147,7 +150,11 @@ var onPaint = function(){
 	context.lineTo(mouse.x, mouse.y);
 	context.stroke();
 };
-//Add colours and ability to clear canvas as well as eraser
+
+//Clear the canvas with 'clear' button
+clear.onclick = function(){
+	context.clearRect(0, 0, canvas.width, canvas.height);
+};
 
 </script>
 </body>
