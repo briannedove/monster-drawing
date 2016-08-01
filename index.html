@@ -5,6 +5,7 @@
 <title>Draw-A-Scary</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="getmonster.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Lobster|Bree+Serif' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -86,7 +87,8 @@ context.lineJoin = 'round';
 context.lineCap = 'round';
 context.strokeStyle = 'black';
 
-//colour changing
+/*colour changing*/
+//add colour change when button is "active"
 red.onclick = function(){
 	context.strokeStyle = 'red';
 };
@@ -136,7 +138,8 @@ large.onclick = function(){
 
 /*Refine this bit so that user can paint with a single click
 rather than only with click & drag */
-canvas.addEventListener('mousedown', function(e){
+
+canvas.addEventListener('mousedown', function(){
 	context.beginPath();
 	context.moveTo(mouse.x, mouse.y);
 	

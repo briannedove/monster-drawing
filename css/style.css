@@ -10,7 +10,7 @@ header
 	header h1
 	{
 		font-size: 48px;
-		font-family: sans-serif;
+		font-family: 'Lobster', cursive;
 		text-align: center;
 		border: 2px green solid;
 	}
@@ -47,10 +47,13 @@ canvas
 
 button
 {
-	background-color: #CD2729;
+	color: white;
+	background-color: black;
 	border: none;
+	border-radius: 10px;
 	cursor:pointer;
 	padding: 5px;
+	font-family: 'Bree Serif', serif;
 }
 
 #drawing-area
@@ -62,6 +65,9 @@ button
 {
 	border: 2px green solid;
 }
+	#colours button{
+		width: 130px;
+	}
 
 #eraser-container
 {
